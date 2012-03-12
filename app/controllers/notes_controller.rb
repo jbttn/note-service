@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show, :undistracted]
   before_filter :authorized, only: [:edit, :update, :destroy]
   
   def index
