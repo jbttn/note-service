@@ -1,0 +1,10 @@
+.row
+  .span8
+    %h1 Options
+    %ul
+      %li= link_to 'New Note', new_note_path
+  .span4
+    %h1 Your Recent Notes
+    %ul
+      - current_user.notes.recent.each do |note|
+        %li= link_to note.title, note

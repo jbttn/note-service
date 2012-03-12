@@ -1,0 +1,90 @@
+@import "twitter/bootstrap/bootstrap";
+@import "bootstrap_changes.css.less";
+
+// Custom styling here
+
+// Variables
+@baseSpacing: 20px;
+
+// Mixins
+.paper-container {
+  padding: @baseSpacing;
+  background-color: @white;
+  //border: 1px solid #CCC;
+  //.border-radius(2px);
+  .box-shadow(0px 1px 4px rgba(0,0,0,.4));
+}
+
+// General
+html, body {
+  min-height: 100%;
+}
+
+body {
+  margin-top: 40px;
+  #gradient > .vertical(lighten(@blue, 30), @blue);
+  //background: url('/assets/furley_bg.png');
+}
+
+#main-container {
+  #translucent > .background(@white, .40);
+  padding: @baseSpacing @baseSpacing;
+  //border-left: 1px dashed #FFF;
+  //border-right: 1px dashed #FFF;
+}
+
+.liquid-form {
+  margin-left: 20px;
+}
+
+// Navbar
+
+#navbar-gravatar {
+  float: left;
+  margin-right: 3px;
+  margin-top: 1px;
+}
+
+#navbar-user {
+  width: 16px;
+  vertical-align: middle;
+}
+
+#signin-dropdown {
+  form {
+    padding: 10px;
+  }
+}
+
+#center-brand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  line-height: 1;
+  color: @white;
+  font-size: 28px;
+  font-weight: 600;
+  padding-top: 3px;
+  text-decoration: none;
+}
+
+// User
+
+#user-info {
+  #user-info-data {
+    margin-top: 5px;
+  }
+  
+  h1 {
+    vertical-align: middle;
+    display: inline;
+  }
+  img {
+    vertical-align: middle;
+    margin-right: @baseSpacing / 3.5;
+  }
+}
+
+@import "twitter/bootstrap/responsive"

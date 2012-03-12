@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NoteApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'shared/navbar' %>
+  <div id="main-container" class="container">
+    <%= render 'shared/alerts' %>
+    <%= yield %>
+  </div>
+<%= javascript_include_tag "application" %>
+</body>
+</html>

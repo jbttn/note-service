@@ -1,0 +1,21 @@
+<div id="sign-in-form">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= field_set_tag nil, :class => 'control-group' do %>
+    <ul class="unstyled">
+      <li><%= f.email_field :email, :placeholder => 'E-Mail', :class => 'text-input' %></li>
+      <li><%= f.password_field :password, :placeholder => 'Password', :class => 'text-input' %></li>
+    </ul>
+    <% end %>
+
+    <% if devise_mapping.rememberable? -%>
+      <label class="checkbox">
+        <%= f.check_box :remember_me, :class => "checkbox" %>
+        Remember Me
+      </label>
+    <% end -%>
+
+    <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+  <% end %>
+
+  <%= render 'devise/links' %>
+</div>

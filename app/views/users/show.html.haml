@@ -1,0 +1,18 @@
+#user-info.paper-container
+  = image_tag @user.gravatar_url(size: 32)
+  %h1= link_to "#{@user.username}'s Profile", @user
+  #user-info-data
+    - if @user == current_user
+      = link_to 'Edit Profile', edit_user_registration_path
+%table.table.table-striped.paper-container
+  %thead
+    %tr
+      %th Title
+      %th Created
+      %th Hits
+  %tbody
+    - @user.notes.recent.each do |note|
+      %tr
+        %td= link_to note.title, note
+        %td= "#{time_ago_in_words(note.created_at)} ago"
+        %td= note.hits

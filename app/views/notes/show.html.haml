@@ -1,0 +1,8 @@
+%h1= @note.title
+= link_to "View Undistracted", undistracted_path(@note)
+%a View Raw
+.paper-container
+  = markdown(@note.content)
+.paper-container
+  %h1 Raw
+  %pre= @note.content
