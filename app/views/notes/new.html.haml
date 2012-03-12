@@ -1,5 +1,6 @@
-.liquid-form
-  = form_for(Note.new, :as => :note, :url => notes_path) do |f|
-    = f.text_field :title, placeholder: 'Untitled', class: 'span12'
-    = f.text_area  :content, placeholder: 'Content', size: '30x20', class: 'span12'
-    = f.submit     'Create', class: 'btn btn-primary'
+.row
+  .liquid-form
+    = form_for(Note.new, :as => :note, :url => notes_path) do |f|
+      = f.text_field :title, placeholder: 'Untitled', class: 'span12'
+      = f.text_area  :content, placeholder: 'Content', size: '30x20', class: 'span12'
+      = f.submit     'Create', class: 'btn btn-primary'

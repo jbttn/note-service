@@ -1,0 +1,113 @@
+// Button-groups.less
+.btn-group {
+  height: 28px;
+}
+
+// Dropdown.less
+.dropdown-menu {
+  max-width: 240px;
+}
+
+.dropdown.open .dropdown-toggle {
+  color: #555;
+}
+
+// Forms.less
+input:focus,
+textarea:focus {
+  border-color: rgba(200,125,125,.8);
+  @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(200,125,125,.6);
+}
+
+// Labels.less
+.label {
+  color: @grayDark;
+  background-color: @grayLighter;
+}
+
+// Navbar.less
+.navbar-inner {
+  background-image: none; // cancel out the default bootstrap gradient
+  filter: none; // for IE
+  #translucent > .background(@grayLighter, 0.5);
+}
+
+.navbar-search {
+  .search-query {
+    color: rgba(100,100,100,.75);
+    border: 1px solid @white;
+    
+    .placeholder(@grayLight);
+    
+    &:hover {
+      color: @grayDarker;
+    }
+    
+    &:focus,
+    &.focused {
+      background-color: @grayLighter;
+    }
+  }
+}
+
+.navbar .nav > li > a {
+  text-shadow: 0 0 0 transparent;
+}
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  color: @white;
+  background-color: rgba(0,0,0,.8);
+  #gradient > .vertical(#888, #222);
+}
+
+.navbar .nav .dropdown-toggle .caret,
+.navbar .nav .open.dropdown .caret {
+  border-top-color: @linkColor;
+}
+
+// Navs.less
+.nav-tabs {
+  height: 33px;
+}
+
+.tabbable {
+  //height: 50px;
+}
+
+// Scaffolding.less
+a:hover {
+  text-decoration: none;
+}
+
+// Sprites.less
+[class^="icon-"] {
+  background-image: url(/assets/glyphicons-halflings.png);
+}
+
+.icon-white {
+  background-image: url(/assets/glyphicons-halflings-white.png);
+}
+
+// Variables.less
+@linkColor:             lighten(#9d261d, 25%);
+@baseFontFamily:        facitweb, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@iconSpritePath:          "/assets/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "/assets/glyphicons-halflings-white.png";
+
+@navbarBackground:                #DDD;
+@navbarBackgroundHighlight:       @white;
+
+@navbarText:                      @black;
+@navbarLinkColor:                 @gray;
+@navbarLinkColorHover:            @black;
+
+// Wells.less
+.well {
+  background-color: @white;
+  border: 0px solid transparent;
+  .border-radius(2px);
+  //.box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  .box-shadow(0 1px 4px rgba(0,0,0,.4));
+}

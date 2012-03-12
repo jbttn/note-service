@@ -1,8 +1,9 @@
-%h1= @note.title
-= link_to "View Undistracted", undistracted_path(@note)
-%a View Raw
-.paper-container
+#note-header
+  %h1= @note.title
+  .pull-right
+    = link_to "View Undistracted", undistracted_path(@note), class: 'btn btn-primary'
+    = link_to "View Raw", '#raw-note', class: 'btn btn-primary'
+#note-content.paper-container
   = markdown(@note.content)
-.paper-container
-  %h1 Raw
-  %pre= @note.content
+%h1#raw-note Raw
+%pre= @note.content
