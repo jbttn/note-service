@@ -21,12 +21,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   
   gem 'less'
-  gem 'haml'
   gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
 
+gem 'haml'
 gem 'devise', '2.0.4'
 gem 'gravtastic'
 gem 'redcarpet', '2.1.0'
