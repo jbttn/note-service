@@ -2,8 +2,10 @@
   %h1= @note.title
   .pull-right
     = link_to "View Undistracted", undistracted_path(@note), class: 'btn btn-primary'
-    = link_to "View Raw", '#raw-note', class: 'btn btn-primary'
+    = link_to "View Raw", note_path(@note, format: :text), class: 'btn btn-primary'
+    - if current_user == @note.owner
+      = link_to "Edit", edit_note_path(@note), class: 'btn btn-primary'
 #note-content.paper-container
   = markdown(@note.content)
-%h1#raw-note Raw
-%pre= @note.content
+-#%h1#raw-note Raw
+-#%pre= @note.content

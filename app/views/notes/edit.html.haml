@@ -1,0 +1,5 @@
+.row
+  .liquid-form
+    = form_for(@note, :as => :note, :url => @note) do |f|
+      = render 'notes/fields', f: f
+      = f.submit 'Update', class: 'btn btn-primary'

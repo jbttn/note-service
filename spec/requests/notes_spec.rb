@@ -19,4 +19,10 @@ describe "Notes" do
     end.should change(Note, :count).by(1)
     Note.last.owner.should eq(@user)
   end
+  
+  it "only allows logged in users to create notes" do
+    logout
+    visit new_note_path
+    page.should have_content('You need to sign in or sign up before continuing.')
+  end
 end

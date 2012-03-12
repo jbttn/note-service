@@ -7,7 +7,27 @@ body {
 }
 
 p {
+  margin-left: 20px;
   margin-bottom: 10px;
+}
+
+pre {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px dotted #CCC;
+  background: #EEE;
+}
+
+pre code {
+  border: none;
+  color: #000;
+}
+
+code {
+  background: #EEE;
+  border: 1px dotted #CCC;
+  color: #d14;
 }
 
 h1 {
@@ -27,6 +47,13 @@ h5 {
 }
 h6 {
   font-size: 14px;
+}
+
+ul {
+  list-style-type: circle;
+}
+li {
+  margin-left: 20px;
 }
 
 .light {

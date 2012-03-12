@@ -1,10 +1,10 @@
-.row
-  .span8
+#dashboard.row
+  .span8.paper-container
     %h1 Options
     %ul
       %li= link_to 'New Note', new_note_path
-  .span4
-    %h1 Your Recent Notes
+  .span3.paper-container
+    %h2 Your Recent Notes
     %ul
       - current_user.notes.recent.each do |note|
-        %li= link_to note.title, note
+        %li= link_to "#{note.title} - #{note.hits} hits", note
