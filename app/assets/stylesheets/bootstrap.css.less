@@ -22,15 +22,17 @@ html, body {
 
 body {
   margin-top: 40px;
-  #gradient > .vertical(lighten(@blue, 30), @blue);
+  background: #EEE;
+  #gradient > .radial(lighten(@blue, 5), darken(@blue, 10));
   //background: url('/assets/furley_bg.png');
+  //background: url('/assets/wood_pattern.png');
 }
 
 #main-container {
-  //#translucent > .background(@white, .40);
+  //#translucent > .background(@black, .40);
   padding: @baseSpacing @baseSpacing;
-  //border-left: 1px dashed #FFF;
-  //border-right: 1px dashed #FFF;
+  //border-left: 1px solid #CCC;
+  //border-right: 1px solid #CCC;
 }
 
 #dashboard {
@@ -41,7 +43,20 @@ body {
   margin-left: 20px;
 }
 
+// Devise / Registration
+
+#devise-container {
+  width: 24%;
+  .center-block();
+}
+
 // Navbar
+
+ul.nav {
+  .open {
+    #gradient > .vertical(lighten(@blue, 20), @blue);
+  }
+}
 
 #navbar-gravatar {
   float: left;
@@ -67,7 +82,8 @@ body {
   right: 0;
   text-align: center;
   line-height: 1;
-  color: @white;
+  color: @black;
+  text-shadow: #555 1px 1px;
   font-size: 28px;
   font-weight: 600;
   padding-top: 3px;
@@ -94,10 +110,29 @@ body {
 // Note
 
 #note-header {
-  display: inline;
+  //display: inline;
+  padding: @baseSpacing / 2;
+  margin-top: -@baseSpacing;
+  color: @white;
+  //#gradient > .vertical(lighten(@navbarBackgroundHighlight, 20), lighten(@navbarBackground, 10));
+  #translucent > .background(#5E5E6A, .40);
+  .border-radius(4px);
+  .box-shadow(0px 1px 4px rgba(0,0,0,.4));
+  .clearfix();
   
-  h1 {
-    display: inline;
+  #note-options {
+    float: right;
+  }
+  
+  h1, h2 {
+    //color: darken(@navbarBackgroundHighlight, 10);
+    color: #EEE;
+    text-shadow: #333 1px 1px, #333 2px 2px;
+    float: left;
+    //display: inline;
+  }
+  h2 {
+    clear: left;
   }
 }
 

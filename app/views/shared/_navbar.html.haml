@@ -1,7 +1,7 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to 'NoteApp', root_path, id: 'center-brand'
+      = link_to 'Noteorious', root_path, id: 'center-brand'
       %form.navbar-search.pull-left
         %input.search-query{type: 'text'}
       %ul.nav.pull-right
@@ -16,6 +16,7 @@
           %ul.dropdown-menu
             - if user_signed_in?
               %li= link_to "Profile", current_user
+              %li.divider
               %li= link_to "Sign Out", destroy_user_session_path, method: :delete
             - else
               #signin-dropdown= render 'shared/sign_in_form'

@@ -26,17 +26,11 @@ textarea:focus {
 }
 
 // Navbar.less
-/*
-.navbar-inner {
-  background-image: none; // cancel out the default bootstrap gradient
-  filter: none; // for IE
-  #translucent > .background(@grayLighter, 0.5);
-}
 
 .navbar-search {
   .search-query {
-    color: rgba(100,100,100,.75);
-    border: 1px solid @white;
+    color: rgba(200,200,200,.75);
+    border: 1px solid #333;
     
     .placeholder(@grayLight);
     
@@ -46,15 +40,19 @@ textarea:focus {
     
     &:focus,
     &.focused {
-      background-color: @grayLighter;
+      background-color: @grayLight;
     }
   }
 }
 
 .navbar .nav > li > a {
   text-shadow: 0 0 0 transparent;
+  
+  &:hover {
+    color: #555;
+  }
 }
-
+/*
 .navbar .nav .active > a,
 .navbar .nav .active > a:hover {
   color: @white;
@@ -65,8 +63,8 @@ textarea:focus {
 .navbar .nav .dropdown-toggle .caret,
 .navbar .nav .open.dropdown .caret {
   border-top-color: @linkColor;
-}
-*/
+}*/
+
 // Navs.less
 .nav-tabs {
   height: 33px;
@@ -91,19 +89,19 @@ a:hover {
 }
 
 // Variables.less
-@linkColor:             lighten(#9d261d, 25%);
+@linkColor:             lighten(@blue, 10%);
 @baseFontFamily:        facitweb, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @iconSpritePath:          "/assets/glyphicons-halflings.png";
 @iconWhiteSpritePath:     "/assets/glyphicons-halflings-white.png";
-/*
-@navbarBackground:                #DDD;
-@navbarBackgroundHighlight:       @white;
+
+@navbarBackground:                #2A2A30;
+@navbarBackgroundHighlight:       #414149;
 
 @navbarText:                      @black;
 @navbarLinkColor:                 @gray;
 @navbarLinkColorHover:            @black;
-*/
+
 // Wells.less
 .well {
   background-color: @white;

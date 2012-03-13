@@ -1,10 +1,18 @@
 #dashboard.row
   .span8.paper-container
-    %h1 Options
-    %ul
-      %li= link_to 'New Note', new_note_path
+    %h1 Quick Note
+    -#%ul
+      -#%li= link_to 'New Note', new_note_path
+    = form_for(Note.new, :as => :note, :url => notes_path) do |f|
+      = f.text_field :title, placeholder: 'Untitled', class: 'span8'
+      = f.text_area  :content, placeholder: 'Content', size: '30x20', class: 'span8'
+      = f.submit 'Create', class: 'btn btn-primary btn-large span8', style: 'width: 100%;'
   .span3.paper-container
     %h2 Your Recent Notes
     %ul
       - current_user.notes.recent.each do |note|
-        %li= link_to "#{note.title} - #{note.hits} hits", note
+        %li= link_to "#{note.title} - by #{note.owner.username}", note
+    %h2 All Recent Notes
+    %ul
+      - Note.recent.each do |note|
+        %li= link_to "#{note.title} - by #{note.owner.username}", note
