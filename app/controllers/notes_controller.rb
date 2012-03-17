@@ -23,6 +23,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
     @note.owner = current_user
+    @note.owner.tag(@note, with: params[:note][:tag_list], on: :tags)
     
     if @note.save
       redirect_to @note, :flash => {:success => "Note created!"}
@@ -37,6 +38,7 @@ class NotesController < ApplicationController
   
   def update
     @note = Note.find(params[:id])
+    @note.owner.tag(@note, with: params[:note][:tag_list], on: :tags)
     
     if @note.update_attributes(params[:note])
       redirect_to @note, flash: { success: 'Note updated successfully!' }

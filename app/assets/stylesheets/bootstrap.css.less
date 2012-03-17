@@ -13,6 +13,37 @@
   //border: 1px solid #CCC;
   //.border-radius(2px);
   .box-shadow(0px 1px 4px rgba(0,0,0,.4));
+  
+  h1, h2 {
+    color: #444;
+    text-shadow: #ccc 1px 1px;
+    margin-bottom: 10px;
+    
+    a {
+      text-shadow: none;
+    }
+  }
+  
+  .header {
+    padding: @baseSpacing / 2;
+    margin: 5px 0;
+    //#translucent > .background(#000, .20);
+    background-image: url('/assets/wood_pattern.png');
+    .box-shadow(inset 0px 1px 4px rgba(0,0,0,.7));
+    h1, h2 {
+      margin: 0;
+      color: #FFF;
+      text-shadow: #333 1px 1px, #333 2px 2px;
+    }
+  }
+}
+
+.transparent-container {
+  padding: @baseSpacing / 2;
+  color: @white;
+  //#gradient > .vertical(lighten(@navbarBackgroundHighlight, 20), lighten(@navbarBackground, 10));
+  #translucent > .background(#5E5E6A, .40);
+  .box-shadow(0px 1px 4px rgba(0,0,0,.4));
 }
 
 // General
@@ -39,8 +70,13 @@ body {
   //padding: @baseSpacing 0;
 }
 
+#logo {
+  position: absolute;
+}
+
 .liquid-form {
-  margin-left: 20px;
+  //margin-left: 20px;
+  margin-right: -20px;
 }
 
 // Devise / Registration
@@ -111,13 +147,9 @@ ul.nav {
 
 #note-header {
   //display: inline;
-  padding: @baseSpacing / 2;
   margin-top: -@baseSpacing;
-  color: @white;
-  //#gradient > .vertical(lighten(@navbarBackgroundHighlight, 20), lighten(@navbarBackground, 10));
-  #translucent > .background(#5E5E6A, .40);
+  .transparent-container();
   .border-radius(4px);
-  .box-shadow(0px 1px 4px rgba(0,0,0,.4));
   .clearfix();
   
   #note-options {
@@ -126,6 +158,7 @@ ul.nav {
   
   h1, h2 {
     //color: darken(@navbarBackgroundHighlight, 10);
+    width: 90%;
     color: #EEE;
     text-shadow: #333 1px 1px, #333 2px 2px;
     float: left;

@@ -1,5 +1,5 @@
 .row
-  .liquid-form
+  .liquid-form.paper-container
     = form_for(Note.new, :as => :note, :url => notes_path) do |f|
       = render 'notes/fields', f: f
-      = f.submit 'Create', class: 'btn btn-primary'
+      = f.submit 'Create', class: 'btn btn-primary btn-large', style: 'width: 100%;'

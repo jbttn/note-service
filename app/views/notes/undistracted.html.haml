@@ -4,5 +4,4 @@
     %h2.light= "By #{@note.owner.username}"
   %ul
     %li= link_to note_url(@note), @note
-    %li More Metadata
 = markdown(@note.content)

@@ -4,6 +4,10 @@
     Created by
     = link_to @note.owner.username, @note.owner
     = "#{time_ago_in_words(@note.created_at)} ago"
+  -if !@note.tag_list.empty?
+    %h2
+      - @note.tag_list.each do |tag|
+        = link_to tag, tag_path(tag)
   #note-options
     .btn-group
       %button.btn.btn-large.btn-primary.dropdown-toggle{'data-toggle' => 'dropdown'}

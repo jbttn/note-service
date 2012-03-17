@@ -9,6 +9,7 @@ NoteApp::Application.routes.draw do
   resources :notes
   
   match 'notes/:id/undistracted' => 'notes#undistracted', as: :undistracted
+  match 'tag/:tag' => 'tags#show', as: :tag
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

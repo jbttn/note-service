@@ -9,7 +9,11 @@
 }
 
 .dropdown.open .dropdown-toggle {
-  color: #555;
+  color: #FFF;
+  
+  &:hover {
+    color: #fff;
+  }
 }
 
 // Forms.less
@@ -27,10 +31,15 @@ textarea:focus {
 
 // Navbar.less
 
+.navbar-inner {
+  background-image: url('/assets/navbar-bg.png');
+}
+
 .navbar-search {
   .search-query {
     color: rgba(200,200,200,.75);
     border: 1px solid #333;
+    width: 160px;
     
     .placeholder(@grayLight);
     
@@ -47,9 +56,9 @@ textarea:focus {
 
 .navbar .nav > li > a {
   text-shadow: 0 0 0 transparent;
-  
+  color: #888;
   &:hover {
-    color: #555;
+    color: #888;
   }
 }
 /*

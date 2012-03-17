@@ -5,6 +5,7 @@
       -#%li= link_to 'New Note', new_note_path
     = form_for(Note.new, :as => :note, :url => notes_path) do |f|
       = f.text_field :title, placeholder: 'Untitled', class: 'span8'
+      = f.text_field :tag_list, placeholder: 'Tags, Ex: work, school, todos', class: 'span8'
       = f.text_area  :content, placeholder: 'Content', size: '30x20', class: 'span8'
       = f.submit 'Create', class: 'btn btn-primary btn-large span8', style: 'width: 100%;'
   .span3.paper-container
@@ -16,3 +17,7 @@
     %ul
       - Note.recent.each do |note|
         %li= link_to "#{note.title} - by #{note.owner.username}", note
+    %h2 Your Tags
+    %ul
+      - current_user.owned_tags.each do |tag|
+        %li= link_to tag, tag_path(tag.name)

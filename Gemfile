@@ -30,6 +30,7 @@ gem 'haml'
 gem 'devise', '2.0.4'
 gem 'gravtastic'
 gem 'redcarpet', '2.1.0'
+gem 'acts-as-taggable-on', '2.2.2'
 gem 'prawn', '0.12.0'
 
 # To use ActiveModel has_secure_password

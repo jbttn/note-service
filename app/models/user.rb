@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Gravtastic
   gravtastic
+  acts_as_tagger
   
   has_many :notes, foreign_key: 'owner_id'
   

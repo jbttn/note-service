@@ -1,22 +1,26 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to 'Noteorious', root_path, id: 'center-brand'
-      %form.navbar-search.pull-left
-        %input.search-query{type: 'text'}
-      %ul.nav.pull-right
-        %li.dropdown
-          %a.dropdown-toggle{'data-toggle' => 'dropdown'} 
-            - if user_signed_in?
-              = image_tag current_user.gravatar_url, id: 'navbar-user'
-              %b#navbar-user= current_user.username
-            - else
-              %b Hello Guest
-            %b.caret
-          %ul.dropdown-menu
-            - if user_signed_in?
-              %li= link_to "Profile", current_user
-              %li.divider
-              %li= link_to "Sign Out", destroy_user_session_path, method: :delete
-            - else
-              #signin-dropdown= render 'shared/sign_in_form'
+      =# link_to 'Noteorious', root_path, id: 'center-brand'
+      = link_to image_tag('/assets/noteorious-logo.png', id: 'logo'), root_path
+      .pull-right
+        %form.navbar-search.pull-left
+          %input.search-query{type: 'text'}
+        %ul.nav
+          %li.divider-vertical
+          %li.dropdown
+            %a.dropdown-toggle{'data-toggle' => 'dropdown'} 
+              - if user_signed_in?
+                = image_tag current_user.gravatar_url, id: 'navbar-user'
+                %b#navbar-user= current_user.username
+              - else
+                %b Hello Guest
+              %b.caret
+            %ul.dropdown-menu
+              - if user_signed_in?
+                %li= link_to "Profile", current_user
+                %li= link_to "New Note", new_note_path
+                %li.divider
+                %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+              - else
+                #signin-dropdown= render 'shared/sign_in_form'

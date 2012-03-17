@@ -1,4 +1,6 @@
 class Note < ActiveRecord::Base
+  acts_as_taggable
+  
   belongs_to :owner, class_name: 'User'
   before_validation :init
   
