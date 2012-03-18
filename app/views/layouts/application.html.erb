@@ -14,6 +14,8 @@
 <%= javascript_include_tag "application" %>
 <script src="http://scripts.embed.ly/jquery.embedly.min.js"></script>
 <script type="text/javascript">
+  if('<%= controller_name %>' == 'notes' && ('<%= action_name %>' == 'new' || '<%= action_name %>' == 'edit'))
+    setInterval(updatePreview, 4000)
   /*$('document').ready(function(){
     $('div#note-content').embedly({
       maxWidth: 450,

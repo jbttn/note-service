@@ -1,15 +1,17 @@
 NoteApp::Application.routes.draw do
   devise_for :users
   
-  root :to => 'pages#dashboard'
+  root :to => 'pages#welcome'
   
   match 'about' => 'pages#about'
+  match 'dashboard' => 'pages#dashboard'
   
   resources :users
   resources :notes
   
   match 'notes/:id/undistracted' => 'notes#undistracted', as: :undistracted
   match 'tag/:tag' => 'tags#show', as: :tag
+  match 'markdownify' => 'pages#markdownify'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
