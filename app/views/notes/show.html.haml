@@ -20,7 +20,4 @@
           %li.divider
           %li= link_to "Edit", edit_note_path(@note)
 #note-content.paper-container
-  = markdown(@note.content)
--#%h1#raw-note Raw
--#%pre= @note.content
-= content_tag 'style', Pygments.css('.highlight')
+  ~ markdown(@note.content)

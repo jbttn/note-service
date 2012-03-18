@@ -33,7 +33,6 @@ GEM
       rails (~> 3.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    blankslate (2.1.2.4)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -44,6 +43,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.1)
       ffi (~> 1.0.6)
+    coderay (1.0.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -105,8 +105,6 @@ GEM
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
       ttfunk (~> 1.0.2)
-    pygments.rb (0.2.7)
-      rubypython (~> 0.5.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -147,9 +145,6 @@ GEM
       railties (>= 3.0)
       rspec (~> 2.8.0)
     ruby-rc4 (0.1.5)
-    rubypython (0.5.3)
-      blankslate (>= 2.1.2.3)
-      ffi (~> 1.0.7)
     rubyzip (0.9.6.1)
     sass (3.1.15)
     sass-rails (3.2.4)
@@ -193,6 +188,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (= 2.2.2)
   capybara
+  coderay
   coffee-rails (~> 3.2.1)
   devise (= 2.0.4)
   factory_girl_rails
@@ -203,7 +199,6 @@ DEPENDENCIES
   less
   pg
   prawn (= 0.12.0)
-  pygments.rb (= 0.2.7)
   rails (= 3.2.2)
   redcarpet (= 2.1.0)
   rspec-rails
