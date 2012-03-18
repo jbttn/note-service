@@ -201,7 +201,6 @@ DEPENDENCIES
   haml
   jquery-rails
   less
-  nokogiri
   pg
   prawn (= 0.12.0)
   pygments.rb (= 0.2.7)
