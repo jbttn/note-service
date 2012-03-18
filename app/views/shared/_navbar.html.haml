@@ -4,9 +4,13 @@
       =# link_to 'Noteorious', root_path, id: 'center-brand'
       = link_to image_tag('/assets/noteorious-logo.png', id: 'logo'), root_path
       .pull-right
-        %form.navbar-search.pull-left
-          %input.search-query{type: 'text'}
+        - if user_signed_in?
+          %form.navbar-search.pull-left
+            %input.search-query{type: 'text'}
         %ul.nav
+          - if !user_signed_in?
+            %li.divider-vertical
+            %li= link_to 'Signup', new_session_path(resource_name)
           %li.divider-vertical
           %li.dropdown
             %a.dropdown-toggle{'data-toggle' => 'dropdown'} 

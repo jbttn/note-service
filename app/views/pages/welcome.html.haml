@@ -1,6 +1,6 @@
 #welcome
   #welcome-header
-    %h1 Welcome to Noteorious
+    %h1= raw("Welcome to #{content_tag 'span', 'Note', class: 'highlight'}orious")
     %h2 A simple way to create and share notes
     = image_tag '/assets/noteorious-screenshot.png'
   #welcome-content

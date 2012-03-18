@@ -32,6 +32,7 @@ gem 'gravtastic'
 gem 'redcarpet', '2.1.0'
 gem 'acts-as-taggable-on', '2.2.2'
 gem 'prawn', '0.12.0'
+gem 'pygments.rb', '0.2.7'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
