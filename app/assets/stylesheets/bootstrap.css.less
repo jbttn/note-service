@@ -91,6 +91,10 @@ span.highlight {
   margin-right: -20px;
 }
 
+.fluid-input {
+  width: 98.5%;
+}
+
 .CodeRay {
   width: 100%;
   .line-numbers {
@@ -230,6 +234,22 @@ ul.nav {
 
 #note-content {
   margin: @baseSpacing 0;
+  word-wrap: break-word;
+}
+
+.CodeMirror-scroll {
+  margin-bottom: 10px;
+  height: 430px;
+  border: 1px solid #CCC
+}
+
+#note-editor {
+  height: 546px;
+}
+
+#note-preview {
+  height: 500px;
+  overflow-y: scroll;
 }
 
 @import "twitter/bootstrap/responsive"

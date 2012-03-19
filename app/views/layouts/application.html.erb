@@ -7,12 +7,17 @@
 </head>
 <body>
   <%= render 'shared/navbar' %>
-  <div id="main-container" class="container">
+  <% if @liquid %>
+    <div id="main-container" class="container-fluid">
+  <% else %>
+    <div id="main-container" class="container">
+  <% end %>
     <%= render 'shared/alerts' %>
     <%= yield %>
   </div>
 <%= javascript_include_tag "application" %>
 <script src="http://scripts.embed.ly/jquery.embedly.min.js"></script>
+<!--<script type="text/javascript" src="http://anywhere.embed.ly/scripts/7ffb388959334303937562342a1b4ecc.js?t=1332139920"></script>-->
 <script type="text/javascript">
   if('<%= controller_name %>' == 'notes' && ('<%= action_name %>' == 'new' || '<%= action_name %>' == 'edit'))
     setInterval(updatePreview, 4000)

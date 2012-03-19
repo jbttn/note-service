@@ -4,6 +4,15 @@ $('.dropdown form').on('click', (e) ->
 )
 
 window.updatePreview = ->
-  $.post('/markdownify', { note: $('textarea').val() }, (data) ->
+  $.post('/markdownify', { note: editor.getValue() }, (data) ->
     $('#note-preview').html(data)
   )
+
+$(() ->
+  window.editor = CodeMirror.fromTextArea(document.getElementById("note_content"), {
+    mode: 'gfm',
+    lineNumbers: true,
+    matchBrackets: true,
+    theme: "default"
+  })
+)

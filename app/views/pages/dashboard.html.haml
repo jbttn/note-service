@@ -11,11 +11,11 @@
   .span3.paper-container
     %h2 Your Recent Notes
     %ul
-      - current_user.notes.recent.each do |note|
+      - current_user.notes.recent.limit(5).each do |note|
         %li= link_to "#{note.title} - by #{note.owner.username}", note
-    %h2 All Recent Notes
+    %h2 Recent Notes
     %ul
-      - Note.recent.each do |note|
+      - Note.recent.limit(5).each do |note|
         %li= link_to "#{note.title} - by #{note.owner.username}", note
     %h2 Your Tags
     %ul
