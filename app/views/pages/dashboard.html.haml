@@ -31,10 +31,5 @@
       %ul
         - current_user.owned_tags.each do |tag|
           %li= link_to tag, tag_path(tag.name)
-  .span8.paper-container
-    %h1 Quick Note
-    = form_for(Note.new, :as => :note, :url => notes_path) do |f|
-      = f.text_field :title, placeholder: 'Untitled', class: 'span8'
-      = f.text_field :tag_list, placeholder: 'Tags, Ex: work, school, todos', class: 'span8'
-      = f.text_area  :content, placeholder: 'Content', size: '30x20', class: 'span8'
-      = f.submit 'Create', class: 'btn btn-primary btn-large span8', style: 'width: 100%;'
+  #dashboard-main.span8.paper-container
+    %h1 Activity

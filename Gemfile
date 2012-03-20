@@ -35,6 +35,8 @@ gem 'prawn', '0.12.0'
 # gem 'pygments.rb', '0.2.7'
 gem 'coderay'
 gem 'thin'
+gem 'rails-backbone', '~> 0.7.0'
+gem 'backbone-support'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
