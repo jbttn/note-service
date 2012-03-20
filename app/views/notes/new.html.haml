@@ -1,11 +1,8 @@
 .row-fluid
-  .span6
+  .span6.stretch-container
     #note-editor.paper-container
       = form_for(Note.new, :as => :note, :url => notes_path) do |f|
         = render 'notes/fields', f: f
         = f.submit 'Create', class: 'btn btn-primary btn-large', style: 'width: 100%;'
-  .span6
-    .paper-container
-      %h1 
-        %i Preview
-      #note-preview
+  .span6.stretch-container
+    #note-preview.paper-container

@@ -46,6 +46,19 @@
   .box-shadow(0px 1px 4px rgba(0,0,0,.4));
 }
 
+.stretch-container {
+  position: relative;
+  display: inline-block; // ?
+}
+
+.stretch(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+  position: absolute;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
 // General
 html, body {
   min-height: 100%;
@@ -97,9 +110,24 @@ span.highlight {
 
 .CodeRay {
   width: 100%;
+  border: 1px solid #DDD;
+  margin-bottom: 10px;
   .line-numbers {
+    text-align: right;
     width: 50px;
     max-width: 50px;
+    border-right: 1px solid #EEE;
+    background: #F7F7F7;
+  }
+  .code {
+    pre {
+      background: @white;
+    }
+  }
+  pre {
+    border: none;
+    .border-radius(0);
+    margin: 0;
   }
 }
 
@@ -168,6 +196,19 @@ ul.nav {
   vertical-align: middle;
 }
 
+#navbar-new-note {
+  margin-top: 5px;
+  padding: 14px;
+  line-height: 0px;
+  color: @white;
+  font-weight: 900;
+  
+  &:hover {
+    //background-color: @green;
+    .buttonBackground(@green, @green);
+  }
+}
+
 #signin-dropdown {
   form {
     padding: 10px;
@@ -187,6 +228,30 @@ ul.nav {
   font-weight: 600;
   padding-top: 3px;
   text-decoration: none;
+}
+
+// Dashboard
+
+#dashboard-user {
+  .clearfix();
+  text-align: center;
+  
+  #dashboard-user-left {
+    float: left;
+    width: 40%;
+  }
+  #dashboard-user-right {
+    float: right;
+    width: 60%;
+  }
+  #dashboard-username {
+    margin-bottom: 5px;
+    line-height: 1em;
+  }
+}
+
+.dashboard-section {
+  margin-bottom: @baseSpacing;
 }
 
 // User
@@ -237,19 +302,23 @@ ul.nav {
   word-wrap: break-word;
 }
 
-.CodeMirror-scroll {
+.CodeMirror {
   margin-bottom: 10px;
+  border: 1px solid #CCC;
+}
+.CodeMirror-scroll {
   height: 430px;
-  border: 1px solid #CCC
 }
 
 #note-editor {
-  height: 546px;
+  //height: 546px;
+  .stretch();
 }
 
 #note-preview {
-  height: 500px;
+  //height: 500px;
+  .stretch();
   overflow-y: scroll;
 }
 
-@import "twitter/bootstrap/responsive"
+//@import "twitter/bootstrap/responsive";

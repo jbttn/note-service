@@ -1,13 +1,13 @@
 .navbar.navbar-fixed-top
   .navbar-inner
-    .container
+    .container-fluid
       =# link_to 'Noteorious', root_path, id: 'center-brand'
       = link_to image_tag('/assets/noteorious-logo.png', id: 'logo'), root_path
       .pull-right
         - if user_signed_in?
           %form.navbar-search.pull-left
             %input.search-query{type: 'text'}
-        %ul.nav
+        %ul.nav.pull-right
           - if !user_signed_in?
             %li.divider-vertical
             %li= link_to 'Signup', new_session_path(resource_name)
@@ -30,3 +30,6 @@
                 %li= link_to "Sign Out", destroy_user_session_path, method: :delete
               - else
                 #signin-dropdown= render 'shared/sign_in_form'
+          %li.divider-vertical
+          - if user_signed_in?
+            %li= link_to 'New Note', new_note_path, id: 'navbar-new-note', class: 'btn btn-primary'

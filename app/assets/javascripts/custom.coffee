@@ -7,12 +7,31 @@ window.updatePreview = ->
   $.post('/markdownify', { note: editor.getValue() }, (data) ->
     $('#note-preview').html(data)
   )
+  
+updateWindowHeight = ->
+  verticalPadding = 80
+  windowHeight = $(window).height()
+  windowHeight -= verticalPadding
+  $('#main-container').css('min-height', -> windowHeight)
+  $('.stretch-container').height(windowHeight)
+  
+  # Fit codemirror in its parent container
+  cmHeight = windowHeight - 160
+  $('.CodeMirror-scroll').height(cmHeight)
 
 $(() ->
-  window.editor = CodeMirror.fromTextArea(document.getElementById("note_content"), {
-    mode: 'gfm',
-    lineNumbers: true,
-    matchBrackets: true,
-    theme: "default"
-  })
+  if(document.getElementById('note_content'))
+    window.editor = CodeMirror.fromTextArea(document.getElementById('note_content'), {
+      mode: 'gfm',
+      lineNumbers: true,
+      matchBrackets: true,
+      theme: "default"
+    })
+
+  
+  updateWindowHeight()
+  
+  $(window).resize(() ->
+    updateWindowHeight()
+  )
 )
