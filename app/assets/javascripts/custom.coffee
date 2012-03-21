@@ -3,11 +3,44 @@ $('.dropdown form').on('click', (e) ->
   e.stopPropagation()
 )
 
+# For updating the markdown preview in the note editor
 window.updatePreview = ->
   $.post('/markdownify', { note: editor.getValue() }, (data) ->
     $('#note-preview').html(data)
   )
-  
+
+# Loads the users layout preference and adjusts any containers
+window.loadWidth = ->
+  if $.cookie('layout') == null
+    $.cookie('layout', '1', { expires: 7, path: '/' })
+    setLiquid()
+    return this
+
+  if $.cookie('layout') == '0'
+    setFixed()
+  else if $.cookie('layout') == '1'
+    setLiquid()
+
+# Toggles the cookie and loads the new layout preference
+window.toggleWidth = ->
+  if $.cookie('layout') == '0'
+    setLiquid()
+    $.cookie('layout', '1', { expires: 7, path: '/' })
+  else
+    setFixed()
+    $.cookie('layout', '0', { expires: 7, path: '/' })
+# Go from liquid to fixed
+setFixed = ->
+  time = 0
+  $('.container-fluid').switchClass('container-fluid', 'container', time)
+  $('.row-fluid').switchClass('row-fluid', 'row', time)
+# Go from fixed to liquid
+setLiquid = ->
+  time = 0
+  $('.container').switchClass('container', 'container-fluid', time)
+  $('.row').switchClass('row', 'row-fluid', time)
+
+# Ensures the content stretches to the bottom of the window
 updateWindowHeight = ->
   verticalPadding = 80 # 80 = 40 navbar, 20 top padding, 20 bottom padding
   windowHeight = $(window).height()
@@ -32,6 +65,7 @@ updateWindowHeight = ->
   cmHeight = windowHeight - 160
   $('.CodeMirror-scroll').height(cmHeight)
 
+# Do some stuff when the DOM is loaded...
 $(() ->
   if(document.getElementById('note_content'))
     window.editor = CodeMirror.fromTextArea(document.getElementById('note_content'), {
@@ -41,8 +75,9 @@ $(() ->
       theme: "default"
     })
 
-  
   updateWindowHeight()
+  
+  loadWidth()
   
   $(window).resize(() ->
     updateWindowHeight()

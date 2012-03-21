@@ -18,7 +18,6 @@ class NotesController < ApplicationController
   
   def new
     @note = Note.new
-    @liquid = true
   end
   
   def create

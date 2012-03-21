@@ -8,11 +8,7 @@
 </head>
 <body>
   <%= render 'shared/navbar' %>
-  <% if @liquid %>
-    <div id="main-container" class="container-fluid">
-  <% else %>
-    <div id="main-container" class="container">
-  <% end %>
+  <div id="main-container" class="container-fluid">
     <%= render 'shared/alerts' %>
     <%= yield %>
   </div>

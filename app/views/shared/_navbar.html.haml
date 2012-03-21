@@ -37,3 +37,8 @@
           %li.divider-vertical
           - if user_signed_in?
             %li= link_to 'New Note', new_note_path, id: 'navbar-new-note', class: 'btn btn-primary'
+            %li.divider-vertical
+          %li
+            %button#navbar-new-note.btn.btn-primary{onclick: 'toggleWidth()'}
+              View
+          %li.divider-vertical
