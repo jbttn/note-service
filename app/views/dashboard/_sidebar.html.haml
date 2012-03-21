@@ -1,0 +1,27 @@
+.span3.stretch-container
+  #dashboard-sidebar.paper-container
+    #dashboard-user.dashboard-section
+      #dashboard-user-left
+        = image_tag current_user.gravatar_url
+      #dashboard-user-right
+        %h1#dashboard-username= link_to current_user.username, current_user
+        %p= "#{current_user.owned_tags.count} tags"
+    #dashboard-nav.dashboard-section
+      %h1 Navigation
+      %ul.nav.nav-list
+        %li
+          %a{href: root_path}
+            %i.icon-home
+            Home
+        %li
+          %a{href: dashboard_notes_path}
+            %i.icon-file
+            My Notes
+        %li
+          %a{href: root_path}
+            %i.icon-tags
+            My Tags
+        %li
+          %a{href: root_path}
+            %i.icon-eye-open
+            Explore

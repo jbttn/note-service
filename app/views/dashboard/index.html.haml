@@ -1,0 +1,18 @@
+#dashboard.row
+  = render 'sidebar'
+  .span9.stretch-container
+    #dashboard-main.paper-container
+      .dashboard-section
+        %h1 Activity
+        %h2 You
+        %ul
+          - current_user.notes.recent.limit(5).each do |note|
+            %li= link_to "#{note.title} - by #{note.owner.username}", note
+        %h2 Global
+        %ul
+          - Note.recent.limit(5).each do |note|
+            %li= link_to "#{note.title} - by #{note.owner.username}", note
+        %h2 Your Tags
+        %ul
+          - current_user.owned_tags.each do |tag|
+            %li= link_to tag, tag_path(tag.name)

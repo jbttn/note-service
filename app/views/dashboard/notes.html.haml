@@ -1,0 +1,28 @@
+#dashboard.row
+  = render 'sidebar'
+  .span9.stretch-container
+    #dashboard-main.paper-container
+      %h1 Notes
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Title
+            %th Tags
+            %th Created
+            %th Hits
+        %tbody
+          - @notes.each do |note|
+            %tr
+              %td= link_to note.title, note
+              %td
+                -if !note.tag_list.empty?
+                  - note.tag_list.each do |tag|
+                    %a{href: tag_path(tag), class: 'tag'}
+                      %i.icon-tag
+                      = tag
+                    -#= link_to tag, tag_path(tag), class: 'tag'
+                - else
+                  None
+              %td= "#{time_ago_in_words(note.created_at)} ago"
+              %td= note.hits
+      = will_paginate @notes, class: 'pagination pagination-centered'

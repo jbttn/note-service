@@ -4,7 +4,6 @@ NoteApp::Application.routes.draw do
   root :to => 'pages#welcome'
   
   match 'about' => 'pages#about'
-  match 'dashboard' => 'pages#dashboard'
   
   resources :users
   resources :notes
@@ -12,6 +11,15 @@ NoteApp::Application.routes.draw do
   match 'notes/:id/undistracted' => 'notes#undistracted', as: :undistracted
   match 'tag/:tag' => 'tags#show', as: :tag
   match 'markdownify' => 'pages#markdownify'
+  
+  scope 'dashboard' do
+    match '' => 'dashboard#index', as: 'dashboard'
+    match 'notes' => 'dashboard#notes', as: 'dashboard_notes'
+  end
+  
+  scope 'api' do
+    match 'current_user' => 'users#current'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
