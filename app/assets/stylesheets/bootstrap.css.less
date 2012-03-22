@@ -10,7 +10,7 @@
 // Mixins
 .paper-container {
   padding: @baseSpacing;
-  background-color: @white;
+  background-color: #F7F7F7;
   //border: 1px solid #CCC;
   //.border-radius(2px);
   .box-shadow(0px 1px 4px rgba(0,0,0,.4));
@@ -71,7 +71,7 @@ html, body {
 body {
   margin-top: 40px;
   background: #EEE;
-  #gradient > .radial(lighten(@blue, 5), darken(@blue, 10));
+  #gradient > .radial(lighten(@white, 5), darken(@blue, 10));
   //background: url('/assets/furley_bg.png');
   //background: url('/assets/wood_pattern.png');
 }
@@ -108,6 +108,16 @@ span.highlight {
   margin: 0 2px;
   background-color: #EEE;
   border: 1px solid #CCC;
+}
+
+.header-tag {
+  padding: 2px;
+  margin: 0 2px;
+  
+  span {
+    position: relative;
+    top: -3px;
+  }
 }
 
 .liquid-form {
@@ -214,12 +224,21 @@ ul.nav {
   vertical-align: middle;
 }
 
-#navbar-new-note {
+.navbar-button {
   margin-top: 5px;
   padding: 14px;
   line-height: 0px;
   color: @white;
   font-weight: 900;
+  
+  &:hover {
+    //background-color: @green;
+    .buttonBackground(@green, @green);
+  }
+}
+
+#navbar-new-note {
+  padding: 5px 4px 2px 8px;
   
   &:hover {
     //background-color: @green;
@@ -278,6 +297,21 @@ ul.nav {
 
   #dashboard-nav {
     margin: 0;
+    
+    li {
+      font-size: 18px;
+      font-weight: 200;
+      
+      a {
+        padding: 10px 15px;
+        height: 30px;
+        vertical-align: bottom;
+        
+        &:hover {
+          background: #F7F7F7;
+        }
+      }
+    }
   }
 }
 
@@ -324,7 +358,7 @@ ul.nav {
     }
   }
   
-  h1, h2 {
+  h1, h2, h3, h4 {
     //color: darken(@navbarBackgroundHighlight, 10);
     width: 90%;
     color: #EEE;
@@ -334,6 +368,9 @@ ul.nav {
   }
   h2 {
     clear: left;
+  }
+  h4 {
+    margin-top: 10px;
   }
 }
 
@@ -360,3 +397,25 @@ ul.nav {
   .stretch();
   overflow-y: scroll;
 }
+
+// Sprites
+
+[class^="icon-big-"],
+[class*=" icon-big-"] {
+    background: url(/assets/glyphicons.png) no-repeat top left;
+}
+.nav-list [class^="icon-big-"] {
+  margin-right: 5px;
+}
+.icon-big-heart{ background-position: 0 0; width: 29px; height: 26px; } 
+.icon-big-home{ background-position: 0 -76px; width: 33px; height: 31px; margin-right: 8px !important; } 
+.icon-big-cogwheels{ background-position: 0 -157px; width: 31px; height: 31px; } 
+.icon-big-search{ background-position: 0 -238px; width: 29px; height: 29px; } 
+.icon-big-pencil{ background-position: 0 -317px; width: 29px; height: 29px; } 
+.icon-big-file{ background-position: 0 -396px; width: 20px; height: 29px; } 
+.icon-big-notes{ background-position: 0 -475px; width: 24px; height: 30px; margin-left: 3px; margin-right: 14px !important; } 
+.icon-big-eye-open{ background-position: 0 -555px; width: 37px; height: 20px; margin-top: 7px;} 
+.icon-big-tag{ background-position: 0 -625px; width: 29px; height: 29px; } 
+.icon-big-tags{ background-position: 0 -704px; width: 36px; height: 29px; } 
+.icon-big-bookmark{ background-position: 0 -783px; width: 19px; height: 28px; } 
+.icon-big-edit{ background-position: 0 -861px; width: 28px; height: 25px; }

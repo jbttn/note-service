@@ -7,21 +7,21 @@
         %h1#dashboard-username= link_to current_user.username, current_user
         %p= "#{current_user.owned_tags.count} tags"
     #dashboard-nav.dashboard-section
-      %h1 Navigation
+      %hr
       %ul.nav.nav-list
         %li
           %a{href: root_path}
-            %i.icon-home
+            %i.icon-big-home
             Home
         %li
           %a{href: dashboard_notes_path}
-            %i.icon-file
+            %i.icon-big-notes
             My Notes
         %li
           %a{href: root_path}
-            %i.icon-tags
+            %i.icon-big-tags
             My Tags
         %li
           %a{href: root_path}
-            %i.icon-eye-open
+            %i.icon-big-eye-open
             Explore
