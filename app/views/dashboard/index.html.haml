@@ -3,12 +3,10 @@
   .span9.stretch-container
     #dashboard-main.paper-container
       .dashboard-section
-        %h2 Recent Notes
+        %h1 Recent Notes
         %ul.cards
           - current_user.notes.recent.limit(6).each do |note|
             -#%li= link_to "#{note.title}", note
             = render 'shared/note_card', note: note
-        -#%h2 Global
-        -#%ul
-          - Note.recent.limit(5).each do |note|
-            %li= link_to "#{note.title} - by #{note.owner.username}", note
+        %h1 Account Info
+        %p account editing and informations, info about dropbox linking, stats

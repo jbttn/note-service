@@ -1,6 +1,6 @@
 .note.paper-container
-  %h2= link_to note.title, note
-  .note-preview.paper-container
+  .note-title= link_to note.title, note
+  .note-preview.paper-container-inset
     %pre= truncate(note.content, length: 100)
   .note-tags
     %i.icon-tag

@@ -1,8 +1,14 @@
 %li.card
   .card-content
     .card-header
-      = link_to note.title, note
+      .card-title= link_to note.title, note
       .card-author= "By #{note.owner.username}"
+      .card-label
+        %i.icon-tag
+        -if !note.label.nil?
+          = note.label.name
+        - else
+          None
     .card-note
       -#= pin_item_display pin, 'item-thumbnail-image-large'
       %pre= truncate(note.content, length: 100)

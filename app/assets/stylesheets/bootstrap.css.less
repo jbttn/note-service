@@ -11,6 +11,10 @@
 .paper-container {
   .paper-container(#F7F7F7);
 }
+.paper-container-inset {
+  .paper-container(#F7F7F7);
+  .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
+}
 .paper-container(@color: #F7F7F7) {
   padding: @baseSpacing;
   background-color: @color;
@@ -19,12 +23,16 @@
   .box-shadow(0px 1px 4px rgba(0,0,0,.4));
   
   h1 {
-    border-bottom: 1px solid #EEE;
+    //border-bottom: 1px solid #EEE;
   }
   h1, h2, h3, h4, h5 {
-    color: #444;
-    text-shadow: #ccc 1px 1px;
+    background-color: lighten(@linkColor, 30);
+    color: #FFF;
+    .border-radius(4px);
+    //.box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
+    text-shadow: #999 1px 1px;
     margin-bottom: 10px;
+    padding: 0 10px;
     
     a {
       text-shadow: none;
@@ -305,7 +313,16 @@ ul.nav {
       border-bottom: 1px solid @grayLighter;
       font-size: 20px;
       
+      .card-title {
+        display: block;
+      }
       .card-author {
+        float: left;
+        margin-top: 5px;
+        font-size: 12px;
+      }
+      .card-label {
+        float: right;
         margin-top: 5px;
         font-size: 12px;
       }
@@ -364,6 +381,7 @@ ul.nav {
       width: 60%;
     }
     #dashboard-username {
+      font-size: 28px;
       margin-bottom: 5px;
       line-height: 1em;
       border: none;
@@ -406,6 +424,12 @@ ul.nav {
   
   .note {
     margin-bottom: @baseSpacing / 2;
+  }
+  .note-title {
+    font-size: 24px;
+    line-height: 1em;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
   .note-preview {
     background-color: #FFF;
