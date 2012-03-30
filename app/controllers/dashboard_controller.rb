@@ -7,4 +7,8 @@ class DashboardController < ApplicationController
   def notes
     @notes = current_user.notes.recent.paginate(page: params[:page])
   end
+  
+  def labels
+    @labels = current_user.labels
+  end
 end

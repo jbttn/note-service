@@ -1,0 +1,15 @@
+%li.card
+  .card-content
+    .card-header
+      = link_to note.title, note
+      .card-author= "By #{note.owner.username}"
+    .card-note
+      -#= pin_item_display pin, 'item-thumbnail-image-large'
+      %pre= truncate(note.content, length: 100)
+    .card-metadata
+      %a{href: edit_note_path(note)}
+        %i.icon-edit
+      %a{href: root_path}
+        %i.icon-trash
+      -#%p Owner: #{image_tag pin.owner.gravatar_url, width: '16px'} #{link_to pin.owner.username, pin.owner} / #{link_to pin.board.title, pin.board}
+      -#%p #{created_phrase} #{time_ago_in_words(pin.created_at)} ago.

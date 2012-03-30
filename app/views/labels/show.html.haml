@@ -1,0 +1,11 @@
+#dashboard.row
+  = render 'dashboard/sidebar'
+  .span9.stretch-container
+    #dashboard-main
+      #dashboard-note-list
+        - if @notes.empty?
+          No notes with this label
+        - else
+          - @notes.each do |note|
+            = render 'dashboard/note', note: note
+          = will_paginate @notes, class: 'pagination pagination-centered'

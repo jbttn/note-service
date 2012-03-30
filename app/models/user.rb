@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   include Gravtastic
   gravtastic
-  acts_as_tagger
   
   has_many :notes, foreign_key: 'owner_id'
+  has_many :labels, foreign_key: 'owner_id'
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
