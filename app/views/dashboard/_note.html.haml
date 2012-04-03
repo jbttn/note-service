@@ -1,12 +1,13 @@
 .note.paper-container
   .note-title= link_to note.title, note
-  .note-preview.paper-container-inset
+  .note-preview.paper-container
     %pre= truncate(note.content, length: 100)
-  .note-tags
-    %i.icon-tag
-    -if !note.label.nil?
-      = note.label.name
-    - else
-      None
-  = "Created #{time_ago_in_words(note.created_at)} ago"
-  = note.hits
+  .note-footer
+    .note-tag
+      %i.icon-tag
+      -if !note.label.nil?
+        = note.label.name
+      - else
+        None
+    = "Created #{time_ago_in_words(note.created_at)} ago"
+    = note.hits

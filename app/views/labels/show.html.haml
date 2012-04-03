@@ -2,6 +2,11 @@
   = render 'dashboard/sidebar'
   .span9.stretch-container
     #dashboard-main
+      #dashboard-label-header
+        = @label.name
+        .pull-right
+          %a{href: root_path}
+            %i.icon-trash
       #dashboard-note-list
         - if @notes.empty?
           No notes with this label

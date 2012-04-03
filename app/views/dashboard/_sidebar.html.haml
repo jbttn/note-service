@@ -27,11 +27,18 @@
     %section#dashboard-labels
       %hr
       %ul
-        - current_user.labels.each do |l|
+        - if current_user.labels.empty?
+          %li No Labels
+        - else 
           %li
-            %a{href: label_path(l)}
+            %a{href: label_path(0), rel: 'tooltip', title: 'Unlabeled'}
               %i.icon-tag
-              = l.name
+              Unlabeled
+          - current_user.labels.each do |l|
+            %li
+              %a{href: label_path(l), rel: 'tooltip', title: l.name}
+                %i.icon-tag
+                = l.name
     %hr
     = form_for(Label.new, as: :label, url: labels_path) do |f|
       = f.text_field :name, placeholder: 'New Label', class: 'fluid-input'

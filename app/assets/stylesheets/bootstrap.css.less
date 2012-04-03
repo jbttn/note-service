@@ -26,11 +26,11 @@
     //border-bottom: 1px solid #EEE;
   }
   h1, h2, h3, h4, h5 {
-    background-color: lighten(@linkColor, 30);
+    background-color: darken(@linkColor, 5);
     color: #FFF;
     .border-radius(4px);
     //.box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
-    text-shadow: #999 1px 1px;
+    text-shadow: #555 1px 1px;
     margin-bottom: 10px;
     padding: 0 10px;
     
@@ -88,7 +88,7 @@ html, body {
 body {
   margin-top: 40px;
   background: #EEE;
-  #gradient > .radial(lighten(@white, 5), darken(@blue, 10));
+  #gradient > .radial(lighten(@white, 5), darken(@linkColor, 15));
   //background: url('/assets/furley_bg.png');
   //background: url('/assets/wood_pattern.png');
 }
@@ -410,18 +410,29 @@ ul.nav {
   #dashboard-labels {
     ul {
       list-style: none;
+      margin: 0 0 9px 16px;
       
       li {
         font-size: 16px;
         font-weight: 200;
+        
+        .truncate();
       }
     }
+  }
+  
+  form {
+    margin: 0;
+  }
+  input {
+    margin: 0;
   }
 }
 
 #dashboard-main {
   .stretch(0, 0, 0, 0);
   
+  // Note list
   .note {
     margin-bottom: @baseSpacing / 2;
   }
@@ -443,11 +454,18 @@ ul.nav {
       background-color: #FFF;
     }
   }
-  .note-tags {
+  .note-tag {
     font-size: 12px;
   }
   .note-info {
     
+  }
+  
+  // Label Note List
+  #dashboard-label-header {
+    .paper-container();
+    font-size: 32px;
+    margin-bottom: @baseSpacing;
   }
 }
 // is this needed?

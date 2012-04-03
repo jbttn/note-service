@@ -4,6 +4,7 @@ class Note < ActiveRecord::Base
   before_validation :init
   
   scope :recent, order('created_at DESC')
+  scope :unlabeled, where('label_id is NULL')
   
   self.per_page = 5
   

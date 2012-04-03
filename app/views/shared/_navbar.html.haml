@@ -14,7 +14,7 @@
         %ul.nav.pull-right
           - if !user_signed_in?
             %li.divider-vertical
-            %li= link_to 'Signup', new_session_path(resource_name)
+            %li= link_to 'Sign In', new_session_path(resource_name)
           %li.divider-vertical
           %li.dropdown
             %a.dropdown-toggle{'data-toggle' => 'dropdown'} 

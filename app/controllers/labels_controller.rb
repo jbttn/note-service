@@ -1,8 +1,13 @@
 class LabelsController < ApplicationController
   
   def show
-    @label = Label.find(params[:id])
-    @notes = @label.notes.recent.paginate(page: params[:page])
+    if params[:id] == '0'
+      @label = Label.new(name: 'Unlabeled')
+      @notes = current_user.notes.unlabeled.paginate(page: params[:page])
+    else
+      @label = Label.find(params[:id])
+      @notes = @label.notes.recent.paginate(page: params[:page])
+    end
   end
   
   def create
