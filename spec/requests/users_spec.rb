@@ -28,6 +28,6 @@ describe "Users" do
   it "does not edit other users" do
     user = Factory.create(:user)
     visit user_path(user)
-    page.should_not have_content('Edit')
+    page.should_not have_content('Manage')
   end
 end

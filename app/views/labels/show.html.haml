@@ -4,12 +4,14 @@
     #dashboard-main
       #dashboard-label-header
         = @label.name
-        .pull-right
-          %a{href: root_path}
-            %i.icon-trash
+        - if !@label.id.nil?
+          .pull-right
+            %a{href: root_path}
+              %i.icon-trash
       #dashboard-note-list
         - if @notes.empty?
-          No notes with this label
+          #no-labels
+            This label is empty
         - else
           - @notes.each do |note|
             = render 'dashboard/note', note: note

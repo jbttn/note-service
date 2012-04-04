@@ -7,7 +7,6 @@ NoteApp::Application.routes.draw do
   
   resources :users
   resources :notes
-  resources :labels
   
   match 'notes/:id/undistracted' => 'notes#undistracted', as: :undistracted
   match 'markdownify' => 'pages#markdownify'
@@ -15,7 +14,8 @@ NoteApp::Application.routes.draw do
   scope 'dashboard' do
     match '' => 'dashboard#index', as: 'dashboard'
     match 'notes' => 'dashboard#notes', as: 'dashboard_notes'
-    match 'labels' => 'dashboard#labels', as: 'dashboard_labels'
+    #match 'labels' => 'dashboard#labels', as: 'dashboard_labels'
+    resources :labels
   end
   
   scope 'api' do

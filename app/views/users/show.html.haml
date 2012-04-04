@@ -3,7 +3,7 @@
   %h1= link_to "#{@user.username}'s Profile", @user
   #user-info-data
     - if @user == current_user
-      = link_to 'Edit Profile', edit_user_registration_path
+      = link_to 'Manage Profile', edit_user_registration_path
 .paper-container
   %h1 Notes
   %table.table.table-striped

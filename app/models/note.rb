@@ -8,6 +8,10 @@ class Note < ActiveRecord::Base
   
   self.per_page = 5
   
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+  
   def increment_hits
     self.increment!(:hits)
   end

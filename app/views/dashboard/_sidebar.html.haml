@@ -2,9 +2,10 @@
   #dashboard-sidebar.paper-container
     %section#dashboard-user
       #dashboard-user-left
-        = image_tag current_user.gravatar_url
+        = link_to image_tag(current_user.gravatar_url), current_user
       #dashboard-user-right
-        #dashboard-username= link_to current_user.username, current_user
+        %div= "#{current_user.notes.count} notes"
+        %div= "#{current_user.labels.count} labels"
     %section#dashboard-nav
       %hr
       %ul.nav.nav-list
@@ -12,10 +13,6 @@
           %a{href: root_path}
             %i.icon-big-home
             Home
-        %li
-          %a{href: dashboard_notes_path}
-            %i.icon-big-notes
-            My Notes
         -#%li
           %a{href: root_path}
             %i.icon-big-tags
@@ -27,13 +24,19 @@
     %section#dashboard-labels
       %hr
       %ul
+        %li
+          %a{href: dashboard_notes_path, rel: 'tooltip', title: 'All Notes'}
+            %i.icon-file
+            All Notes
+        %li
+          %a{href: label_path('unlabeled'), rel: 'tooltip', title: 'Unlabeled'}
+            %i.icon-question-sign
+            Unlabeled Notes
+      %hr
+      %ul
         - if current_user.labels.empty?
           %li No Labels
         - else 
-          %li
-            %a{href: label_path(0), rel: 'tooltip', title: 'Unlabeled'}
-              %i.icon-tag
-              Unlabeled
           - current_user.labels.each do |l|
             %li
               %a{href: label_path(l), rel: 'tooltip', title: l.name}

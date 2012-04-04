@@ -1,7 +1,9 @@
 class LabelsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :authorized, only: [:show, :update, :destroy]
   
   def show
-    if params[:id] == '0'
+    if params[:id] == 'unlabeled'
       @label = Label.new(name: 'Unlabeled')
       @notes = current_user.notes.unlabeled.paginate(page: params[:page])
     else
@@ -20,4 +22,13 @@ class LabelsController < ApplicationController
       redirect_to root_path, :flash => {:error => "Label creation failed!"}
     end
   end
+  
+  private
+  
+    def authorized
+      if params[:id] != 'unlabeled'
+        @label = Label.find(params[:id])
+        redirect_to root_path if @label.owner != current_user
+      end
+    end
 end

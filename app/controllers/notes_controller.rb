@@ -25,7 +25,7 @@ class NotesController < ApplicationController
     @note.owner = current_user
     
     if @note.save
-      redirect_to @note, :flash => {:success => "Note created!"}
+      redirect_to @note
     else
       render action: "new"
     end
@@ -46,6 +46,9 @@ class NotesController < ApplicationController
   end
   
   def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
+    redirect_to root_path, flash: { success: 'Note deleted!' }
   end
   
   def undistracted
