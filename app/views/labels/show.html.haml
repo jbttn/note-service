@@ -6,8 +6,7 @@
         = @label.name
         - if !@label.id.nil?
           .pull-right
-            %a{href: root_path}
-              %i.icon-trash
+            = link_to '', @label, method: :delete, confirm: 'Are you sure you want to delete this label?', class: 'icon-trash'
       #dashboard-note-list
         - if @notes.empty?
           #no-labels

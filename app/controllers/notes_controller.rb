@@ -39,7 +39,7 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     
     if @note.update_attributes(params[:note])
-      redirect_to @note, flash: { success: 'Note updated successfully!' }
+      redirect_to @note
     else
       render :edit
     end

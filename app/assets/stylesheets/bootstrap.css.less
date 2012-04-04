@@ -15,8 +15,8 @@
   .paper-container(#F7F7F7);
   .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
 }
-.paper-container-card {
-  .paper-container(#FFFFFF);
+.paper-container-card(@color: #FFFFFF) {
+  .paper-container(@color);
   .box-shadow(0px 1px 4px rgba(0,0,0,.4));
 }
 .paper-container(@color: #F7F7F7) {
@@ -27,9 +27,9 @@
   //.box-shadow(0px 1px 4px rgba(0,0,0,.4));
   box-shadow:
           0 1px 4px rgba(0,0,0,0.25), /* The top layer shadow */
-          0 10px 0 -5px #eee, /* The second layer */
+          0 10px 0 -5px @color, /* The second layer */
           0 10px 1px -4px rgba(0,0,0,0.15), /* The second layer shadow */
-          0 20px 0 -10px #eee, /* The third layer */
+          0 20px 0 -10px @color, /* The third layer */
           0 20px 1px -9px rgba(0,0,0,0.15); /* The third layer shadow */
   
   h1 {
@@ -181,7 +181,7 @@ span.highlight {
 }
 
 .pagination {
-  .paper-container();
+  .paper-container-card(#F7F7F7);
   padding: 10px;
   margin: @baseSpacing 0;
   height: auto;
@@ -331,11 +331,7 @@ ul.nav {
         float: left;
         margin-top: 5px;
         font-size: 12px;
-      }
-      .card-label {
-        float: right;
-        margin-top: 5px;
-        font-size: 12px;
+        color: #999;
       }
       
       .truncate();
@@ -360,6 +356,13 @@ ul.nav {
       margin-bottom: 2px;
       color: @grayLight;
       
+      .card-label {
+        float: left;
+        font-size: 12px;
+        width: 75%;
+        
+        .truncate();
+      }
       .card-options {
         float: right;
       }
@@ -443,7 +446,8 @@ ul.nav {
   
   // Note list
   .note {
-    margin-bottom: @baseSpacing / 2;
+    margin-bottom: @baseSpacing;
+    .paper-container-card(#F7F7F7);
   }
   .note-options {
     .pull-right();
@@ -458,6 +462,7 @@ ul.nav {
     margin-bottom: 10px;
   }
   .note-preview {
+    .paper-container();
     background-color: #FFF;
     padding: @baseSpacing / 2;
     margin-bottom: @baseSpacing;
@@ -486,7 +491,7 @@ ul.nav {
   
   // Label Note List
   #dashboard-label-header {
-    .paper-container();
+    .paper-container-card(#F7F7F7);
     font-size: 32px;
     margin-bottom: @baseSpacing;
     color: #555;

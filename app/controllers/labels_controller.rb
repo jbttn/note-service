@@ -23,6 +23,13 @@ class LabelsController < ApplicationController
     end
   end
   
+  def destroy
+    # Need to set any notes with this label to nil
+    @label = Label.find(params[:id])
+    @label.destroy
+    redirect_to root_path, flash: { success: 'Label deleted!' }
+  end
+  
   private
   
     def authorized
