@@ -3,6 +3,7 @@
     = link_to '', edit_note_path(note), class: 'icon-edit'
     = link_to '', note, method: :delete, confirm: 'Are you sure you want to delete this note?', class: 'icon-trash'
   .note-title= link_to note.title, note
+  .note-timestamp= "Created #{time_ago_in_words(note.created_at)} ago"
   .note-preview
     %pre= truncate(note.content, length: 100)
   .note-footer
@@ -12,5 +13,4 @@
         = note.label.name
       - else
         None
-    = "Created #{time_ago_in_words(note.created_at)} ago"
-    = note.hits
+    -#= note.hits

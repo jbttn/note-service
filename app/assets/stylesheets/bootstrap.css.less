@@ -11,8 +11,8 @@
 .paper-container {
   .paper-container(#F7F7F7);
 }
-.paper-container-inset {
-  .paper-container(#F7F7F7);
+.paper-container-inset(@color: #F7F7F7) {
+  .paper-container(@color);
   .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
 }
 .paper-container-card(@color: #FFFFFF) {
@@ -189,6 +189,10 @@ span.highlight {
   bottom: 0;
   left: 0;
   right: 0;*/
+  
+  .active a {
+    .box-shadow(inset 0px 1px 4px rgba(0, 0, 0, 0.1));
+  }
 }
 
 // Welcome page
@@ -447,31 +451,33 @@ ul.nav {
   // Note list
   .note {
     margin-bottom: @baseSpacing;
-    .paper-container-card(#F7F7F7);
+    .paper-container(#F7F7F7);
   }
   .note-options {
     .pull-right();
     .opacity(30);
-    &:hover {
-      .opacity(100);
-    }
   }
   .note-title {
     font-size: 24px;
     line-height: 1em;
+  }
+  .note-timestamp {
+    color: #999;
     margin-bottom: 10px;
   }
   .note-preview {
-    .paper-container();
-    background-color: #FFF;
+    .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
+    background-color: #EEE;
+    border: 1px solid white;
     padding: @baseSpacing / 2;
     margin-bottom: @baseSpacing;
     
     pre {
+      color: #555;
       margin: 0;
       padding: 0;
       border: none;
-      background-color: #FFF;
+      background-color: transparent;
     }
   }
   .note-tag {
@@ -497,6 +503,11 @@ ul.nav {
     color: #555;
     font-weight: 100;
     letter-spacing: 3px;
+    
+    #dashboard-label-options {
+      .opacity(30);
+      float: right;
+    }
   }
 }
 // is this needed?

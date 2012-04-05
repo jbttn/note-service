@@ -17,7 +17,7 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(HTMLwithHighlight.new(
       hard_wrap: true, filter_html: true),
       no_intra_emphasis: true, autolink: true, fenced_code_blocks: true,
-      lax_html_blocks: true)
+      lax_html_blocks: true, superscript: true)
     return markdown.render(text).html_safe
   end
 end
