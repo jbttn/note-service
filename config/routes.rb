@@ -20,6 +20,10 @@ NoteApp::Application.routes.draw do
   
   scope 'api' do
     match 'current_user' => 'users#current'
+    resources :labels
+    resources :notes
+    #match 'labels' => 'labels#index'
+    #match 'labels/:id' => 'labels#show'
   end
 
   # The priority is based upon order of creation:

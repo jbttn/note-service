@@ -12,7 +12,7 @@ window.updatePreview = ->
 # Loads the users layout preference and adjusts any containers
 window.loadWidth = ->
   if $.cookie('layout') == null
-    $.cookie('layout', '1', { expires: 7, path: '/' })
+    $.cookie('layout', '0', { expires: 7, path: '/' })
     setLiquid()
     return this
 
@@ -77,7 +77,7 @@ $(() ->
 
   updateWindowHeight()
   
-  loadWidth()
+  #loadWidth()
   
   $(window).resize(() ->
     updateWindowHeight()

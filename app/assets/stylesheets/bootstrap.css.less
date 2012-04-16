@@ -8,6 +8,14 @@
 @baseSpacing: 20px;
 
 // Mixins
+.inset-stamp() {
+  .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
+  background-color: #EEE;
+  border: 1px solid white;
+  .border-radius(4px);
+  color: #777;
+  text-shadow: #FFF 1px 1px;
+}
 .paper-container {
   .paper-container(#F7F7F7);
 }
@@ -36,13 +44,12 @@
     //border-bottom: 1px solid #EEE;
   }
   h1, h2, h3, h4, h5 {
-    background-color: darken(@linkColor, 5);
-    color: #FFF;
-    .border-radius(4px);
-    //.box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
-    text-shadow: #555 1px 1px;
+    //background-color: darken(@linkColor, 5);
+    //color: #FFF;
+    //text-shadow: #555 1px 1px;
     margin-bottom: 10px;
-    padding: 0 10px;
+    padding: 5px 10px;
+    .inset-stamp();
     
     a {
       text-shadow: none;
@@ -97,11 +104,19 @@ html, body {
 
 body {
   font-weight: 200;
+  font-size: 14px;
   margin-top: 40px;
   background: #EEE;
   #gradient > .radial(lighten(@white, 5), darken(@linkColor, 15));
   //background: url('/assets/furley_bg.png');
   //background: url('/assets/wood_pattern.png');
+}
+
+.embed {
+  width: 450px;
+  padding: 10px;
+  text-align: center;
+  .inset-stamp();
 }
 
 span.highlight {
@@ -466,14 +481,12 @@ ul.nav {
     margin-bottom: 10px;
   }
   .note-preview {
-    .box-shadow(inset 0px 1px 4px rgba(0,0,0,.4));
-    background-color: #EEE;
-    border: 1px solid white;
+    .inset-stamp();
     padding: @baseSpacing / 2;
     margin-bottom: @baseSpacing;
     
     pre {
-      color: #555;
+      color: #777;
       margin: 0;
       padding: 0;
       border: none;
@@ -536,7 +549,7 @@ ul.nav {
 
 #note-header {
   //display: inline;
-  margin-top: -@baseSpacing;
+  margin-top: -@baseSpacing - 4px;
   .transparent-container();
   .border-radius(4px);
   .clearfix();

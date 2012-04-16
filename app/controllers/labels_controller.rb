@@ -2,6 +2,10 @@ class LabelsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :authorized, only: [:show, :update, :destroy]
   
+  def index
+    @labels = current_user.labels.all
+  end
+  
   def show
     if params[:id] == 'unlabeled'
       @label = Label.new(name: 'Unlabeled')
