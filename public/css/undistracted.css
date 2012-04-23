@@ -35,29 +35,53 @@ h1 {
 }
 h2 {
   font-size: 36px;
+  border-bottom: 1px solid #EEE;
+  margin: 10px 0;
 }
 h3 {
+  font-weight: 300;
   font-size: 28px;
 }
 h4 {
+  font-weight: 300;
   font-size: 24px;
 }
 h5 {
+  font-weight: 300;
   font-size: 16px;
 }
 h6 {
+  font-weight: 300;
   font-size: 14px;
 }
 
+ol {
+  margin-left: 20px;
+  list-style-type: decimal;
+}
 ul {
-  list-style-type: circle;
+  margin-left: 20px;
+  list-style-type: disc;
 }
 li {
   margin-left: 20px;
 }
 
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 18px;
+  border: 1px solid #EEE;
+  border-collapse: seperate;
+  border-radius: 4px;
+}
+table th {
+  font-weight: bold;
+}
+
 .light {
   color: #ccc;
+  border: none;
 }
 .indent1 {
   margin-left: 20px;
@@ -74,6 +98,9 @@ li {
 .note-header hgroup {
   margin-bottom: 10px;
   float: right;
+}
+.note-header h1, h2 {
+  font-weight: 100;
 }
 .note-header ul {
   float: left;

@@ -5,8 +5,7 @@
       .dashboard-section
         %h1 Recent Notes
         %ul.cards
-          - current_user.notes.recent.limit(6).each do |note|
-            -#%li= link_to "#{note.title}", note
+          - current_user.notes.recent.limit(9).each do |note|
             = render 'shared/note_card', note: note
-        %h1 Account Info
-        %p account editing and informations, info about dropbox linking, stats
+        -#%h1 Account Info
+        -#%p account editing and informations, info about dropbox linking, stats

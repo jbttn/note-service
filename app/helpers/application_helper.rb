@@ -17,7 +17,7 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(HTMLwithHighlight.new(
       hard_wrap: true, filter_html: true),
       no_intra_emphasis: true, autolink: true, fenced_code_blocks: true,
-      lax_html_blocks: true, superscript: true)
+      lax_html_blocks: true, superscript: true, tables: true, strikethrough: true)
     return markdown.render(text).html_safe
   end
 end
@@ -25,5 +25,8 @@ end
 class HTMLwithHighlight < Redcarpet::Render::HTML
   def block_code(code, language)
     CodeRay.scan(code, language).div(line_numbers: :table)
+  end
+  def table(header, body)
+    "<table class=\"table table-bordered\">\n<thead>\n#{header}</thead>\n<tbody>\n#{body}</tbody>\n</table>"
   end
 end

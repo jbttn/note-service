@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require codemirror/codemirror
+ *= require jquery.qtip.min
  *= require bootstrap
 */

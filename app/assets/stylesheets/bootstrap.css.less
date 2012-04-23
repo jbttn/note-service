@@ -39,11 +39,17 @@
           0 10px 1px -4px rgba(0,0,0,0.15), /* The second layer shadow */
           0 20px 0 -10px @color, /* The third layer */
           0 20px 1px -9px rgba(0,0,0,0.15); /* The third layer shadow */
-  
   h1 {
-    //border-bottom: 1px solid #EEE;
+    color: #444;
+    text-shadow: #FFF 1px 1px;
   }
-  h1, h2, h3, h4, h5 {
+  h2 {
+    color: #777;
+    text-shadow: #FFF 1px 1px;
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 10px;
+  }
+  h3, h4, h5 {
     //background-color: darken(@linkColor, 5);
     //color: #FFF;
     //text-shadow: #555 1px 1px;
@@ -321,7 +327,7 @@ ul.nav {
 // Dashboard
 
 .cards {
-  margin: 0px auto;
+  margin: 10px auto;
   list-style: none;
   .clearfix();
   

@@ -65,6 +65,28 @@ updateWindowHeight = ->
   cmHeight = windowHeight - 160
   $('.CodeMirror-scroll').height(cmHeight)
 
+window.linkPreviews = ->
+  $('#note-content a').each (idx, item) ->
+
+    thumbnail = $('<img />').attr({
+      src: 'http://localhost:4000/url/' + item.host + '.jpg',
+      alt: 'Loading thumbnail...',
+      width: 202,
+      height: 152
+    })
+
+    $(this).qtip
+      content: thumbnail,
+      position: {
+        corner: {
+          tooltip: 'bottomMiddle',
+          target: 'topMiddle'
+        }
+      },
+      style: {
+        classes: 'ui-tooltip-light ui-tooltip-shadow ui-tooltip-rounded'
+      }
+
 # Do some stuff when the DOM is loaded...
 $(() ->
   if(document.getElementById('note_content'))
@@ -72,9 +94,12 @@ $(() ->
       mode: 'gfm',
       lineNumbers: true,
       matchBrackets: true,
-      theme: "default"
+      theme: "default",
+      lineWrapping: true
     })
-
+  
+  linkPreviews()
+  
   updateWindowHeight()
   
   #loadWidth()
